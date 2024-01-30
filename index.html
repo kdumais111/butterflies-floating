@@ -19,18 +19,20 @@
   }
   const s=140
   const numcolumns= nn.width/(s/4)
+  const numRows = nn.height /s
   function setup () {
     nn.get('body').css({ 'background-color': bgColor,
                        'overflow': 'hidden'})
-    for (let i =0; i<100; i++){
-      const x= i * s/4
-      const y= (nn.height /2)- (s/2)
-    
+    for (let r =0; r<numRows; r++){
+      for (let c =0; c<numcolumns; c++){
+        const x= c * s/4-(s/2)
+        const y= r*(s/4)-(s/4)
     // const x = nn.width / 2
     // const y = nn.height / 2
 
     createGif(x, y, s, s, gifURL)
-   }
+     }
+    }
   }
   
   nn.on('load', setup)
